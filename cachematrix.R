@@ -43,11 +43,11 @@ cacheSolve <- function(x, ...) {
  	inverse<-x$getInverse()
 	#if a cached value exists, then return it
 	if(!is.null(inverse)){
-	message("getting cached data")
-	return(inverse)
+		message("getting cached data")
+		return(inverse)
 	}
 	#if there is no cached value, then, get the matrix, caculate the inverse and store it in the cache
-	data<-x$getMatrix
+	data<-x$getMatrix()
 	inverse<-solve(data)
 	x$cacheInverse(inverse)
 
